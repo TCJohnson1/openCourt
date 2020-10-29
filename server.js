@@ -21,6 +21,10 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'op
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
+//importing the hoop model
+const Hoop = require('./controllers/hoops_controller.js')
+app.use(Hoop)
+
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
@@ -49,8 +53,11 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+      res.send('Hello World!');
 });
+
+//New Route
+app.get('/', Hoop)
 
 //___________________
 //Listener
