@@ -6,8 +6,9 @@ const User = require('../models/users.js')
 //ROUTES
 
 users.get('/new', (req, res) => {
-      res.render('users/new.ejs')
+      res.render('users/new.ejs', { currentUser: req.session.currentUser })
 })
+
 
 
 users.post('/', (req, res) => {
