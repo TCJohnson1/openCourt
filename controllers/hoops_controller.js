@@ -3,6 +3,16 @@ const router = express.Router();
 
 //ROUTES
 let currentUser;
+
+//Redirect
+// router.use((req, res, next) =>{
+//       if (req.session.currentUser){
+//             next()
+//       }else {
+//             res.redirect('/sessions/new')
+//       }
+// })
+
 //Index
 router.get('/', (req, res) =>{
       res.render('hoops/index.ejs', { currentUser: req.session.currentUser })
