@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%- include ('../partials/p_head.ejs') %>
       <title>NBA Players</title>
 </head>
 <body>
+      <header>
+            <div class="topper">
+                  <div class="intopper">
+                        <h1>Open Court</h1>
+                        Basketball Stats and History
+                  </div>
+                  <nav class="topnav">
+                        <ul class="topmenu">
+                              <li id="home" class="navmenu"><a href="/">Home</a>
+                              </li>
+                              <li id="teams" class="navmenu"><a href="/teams">Teams</a>
+                              </li>
+                              <li id="comp" class="navmenu"><a href="/compare">Player Comparisons</a>
+                              </li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
       <h1>All NBA Players</h1>
-      <a href="/" >Back Home</a>
+      <!-- <div class="bottomnav">
+            <button> <a href="/">Back Home</a> </button>
+      </div> -->
 </body>
 </html>

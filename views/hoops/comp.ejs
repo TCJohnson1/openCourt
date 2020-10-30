@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%- include ('../partials/p_head.ejs') %>
       <title>Player Comparisons</title>
 </head>
 <body>
+      <header>
+            <div class="topper">
+                  <div class="intopper">
+                        <h1>Open Court</h1>
+                        Basketball Stats and History
+                  </div>
+                  <nav class="topnav">
+                        <ul class="topmenu">
+                              <li id="home" class="navmenu"><a href="/">Home</a>
+                              </li>
+                              <li id="teams" class="navmenu"><a href="/teams">Teams</a>
+                              </li>
+                              <li id="players" class="navmenu"><a href="/players">Players</a>
+                              </li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
       <h1>Compare Two Players</h1>
-      <a href="/players"> Change Players Comparisson</a>
-      <br>
-      <a href="/">Back To Hoops</a>
+      <div class="search">
+            <form class="searchbar">
+                  <input type="text" placeholder="Enter Player" name="search2">
+                  <input type="submit" value="Search" class="searchbutton"></input>
+            </form>
+      </div>
+      <!-- <div class="bottomnav">
+            <br>
+            <button><a href="/players"> Change Players Comparison</a></button>
+            <br>
+            <button><a href="/">Back To Hoops</a></button>
+      </div> -->
 </body>
 </html>

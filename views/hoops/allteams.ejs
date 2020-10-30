@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%- include ('../partials/p_head.ejs') %>
       <title>NBA Teams</title>
 </head>
 <body>
+      <header>
+            <div class="topper">
+                  <div class="intopper">
+                        <h1>Open Court</h1>
+                        Basketball Stats and History
+                  </div>
+                  <nav class="topnav">
+                        <ul class="topmenu">
+                              <li id="home" class="navmenu"><a href="/">Home</a>
+                              </li>
+                              <li id="players" class="navmenu"><a href="/players">Players</a>
+                              </li>
+                              <li id="comp" class="navmenu"><a href="/compare">Player Comparisons</a>
+                              </li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
+
       <h1>Every NBA Team</h1>
-      <h2>Eastern Confrence</h2>
-      <h2>Western Conference</h2>
-      <a href="/" >Back Home</a>
+      <div class="allteams">
+            <div class="teams" id="east">
+                  <h2>Eastern Confrence</h2>
+            </div>
+            <div class="teams" id="west" >
+                  <h2>Western Conference</h2>
+            </div>
+      </div>      
+      <!-- <div class="bottomnav">
+            <button><a href="/" >Back Home</a></button>
+      </div> --> 
 </body>
 </html>

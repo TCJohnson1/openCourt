@@ -18,12 +18,17 @@ const PORT = process.env.PORT || 3000;
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'openCourt';
 
+//CONTROLLERS
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
+const hoopControllers = require('./controllers/hoops_controller.js')
+app.use(hoopControllers)
+
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
-//importing the hoop model
-const Hoop = require('./controllers/hoops_controller.js')
-app.use(Hoop)
+//importing the hoop models
+
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));

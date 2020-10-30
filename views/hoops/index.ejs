@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%- include ('../partials/p_head.ejs') %>
       <title>Home</title>
 </head>
 <body>
-      <h1>Welcome to Hoops</h1>
-      <a href="/teams" >Every NBA Team</a>
-      <br>
-      <a href="/players" >Every NBA Player</a>
-      <br>
-      <a href="/compare" >Compare NBA Players</a>
+      <header>
+            <div class="topper">
+                  <div class="intopper">
+                        <h1>Open Court</h1>
+                        Basketball Stats and History
+                  </div>
+                  <nav class="topnav">
+                        <ul class="topmenu">
+                              <li id="teams" class="navmenu"><a href="/teams">Teams</a>
+                              </li>
+                              <li id="players" class="navmenu"><a href="/players">Players</a>
+                              </li>
+                              <li id="comp" class="navmenu"><a href="/compare">Player Comparisons</a>
+                              </li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
+      <h1>Search For A Player</h1>
+      <div class="search">
+            <form class="searchbar">
+                  <input type="text" placeholder="Enter Player or Team" name="search2">
+                  <input type="submit" value="Search" class="searchbutton"></input>
+            </form>
+      </div>
+      <!-- <div class="bottomnav">
+            <button><a href="/teams" >Every NBA Team</a></button>
+            <br>
+            <button><a href="/players">Every NBA Player</a></button>
+            <br>
+            <button><a href="/compare" >Compare NBA Players</a></button>
+      </div> -->
+      <footer class="footer"></footer>
 </body>
 </html>
