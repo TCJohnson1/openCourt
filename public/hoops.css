@@ -19,7 +19,7 @@
 }
 
 .searchbutton{
-      background-color: #ba9077;
+      background-color: #5a5c51
 }
 
 
@@ -38,6 +38,7 @@ button{
 
 .intopper{
       text-align: center;
+      background-image: radial-gradient(rgb(150, 146, 146), rgb(223, 223, 223));
 }
 
 .navmenu{
@@ -48,7 +49,7 @@ button{
       margin:1%;
 }
 .partialhead{
-      background-color:#5a5c51;
+      background-color: #ba9077;
 }
 
 .intopper{
@@ -57,7 +58,7 @@ button{
 }
 
 .topper{
-      background-color: #bcd5d1;
+      background-color: #5a5c51;
 }
 
 h1{
@@ -105,8 +106,8 @@ h1{
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      background-image: radial-gradient(#bcd5d1, silver);
+      background-image: radial-gradient(#ba9077, #755c4d);
       border-radius: 10%;
       border: 2px silver;
-      box-shadow: 3px 5px silver;
+      box-shadow: 3px 4px silver;
 }
