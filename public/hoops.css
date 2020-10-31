@@ -106,7 +106,7 @@ h1{
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      align-content:space-between;
+      justify-content:space-around;
 }
 
 .Sign-in{
@@ -119,4 +119,12 @@ h1{
       border-radius: 10%;
       border: 2px silver;
       box-shadow: 3px 4px silver;
+}
+
+.playerdiv{
+      border: solid black;
+}
+
+.teamdiv{
+      border: solid black;
 }
