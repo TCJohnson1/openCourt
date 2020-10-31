@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const favorites = require('./fav_controller');
 const router = express.Router();
 
 //ROUTES
@@ -18,6 +19,9 @@ router.get('/', (req, res) =>{
       res.render('hoops/index.ejs', { currentUser: req.session.currentUser })
 })
 
+////////////////////Come back and visit. New and Edit Routes will be handled in the sessions and users controllers////////////////////////////////////////////
+
+
 //Edit
 router.get
 
@@ -25,6 +29,7 @@ router.get
 router.get('/new',(req, res)=>{
       res.render('hoops/new.ejs', { currentUser: req.session.currentUser })
 } )
+////////////////////////////////////////////////////////////////////////////
 
 // //Login
 // router.get('/login', (req, res) =>{
@@ -51,10 +56,12 @@ router.get('/team', (req, res) =>{
       res.render('hoops/team.ejs', { currentUser: req.session.currentUser })
 })
 
+////////////////////Come back and visit. A list of every player doesnt really make sense to have////////////////////////////////////////////
 //Players
 router.get('/players',(req, res)=>{
       res.render('hoops/allplayers.ejs', { currentUser: req.session.currentUser })
 } )
+////////////////////////////////////////////////////////////////////////////
 
 //Individual Player
 router.get('/player',(req, res)=>{
@@ -65,6 +72,34 @@ router.get('/player',(req, res)=>{
 router.get('/compare',(req, res)=>{
       res.render('hoops/comp.ejs', { currentUser: req.session.currentUser })
 } )
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Favorites Routes Copy and Paste if this all needs to go into a Favorites Controller
+//////////////////////////////////////////////////////////////////////////////////////////
+
+//INDEX
+//Test Favorites Route
+router.get('/favorites', (req, res) => {
+      console.log('This is coming from the Hoops Controller')
+      res.render('../views/favorites/show.ejs', { currentUser: req.session.currentUser })
+})
+
+//Not sure if an edit route is needed 
+//EDIT 
+
+//UPDATE
+
+
+//Delete
+router.delete('/favorites:/index', (req, res) =>{
+      //api.legnth = 0
+      res.redirect('/favorites') //Takes me back to the favorites page
+})
+
+//Delete All
+
+
 
 
 module.exports = router

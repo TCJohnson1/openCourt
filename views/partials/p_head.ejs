@@ -5,20 +5,36 @@
 <!-- ============= STYLES ============= -->
 <link rel="stylesheet" href="/hoops.css">
 <!-- ============= REGISTER ============= -->
-<div class="partialhead">
-      <div class="toplog">
-            <nav class="loginnav">
-                  <ul class="login">
-                        <li id="home" class="secret"><a href="/">Home</a>
-                        </li>
-                        <li id="login" class="secret"><a href="/sessions/new">Log In</a>
-                        </li>
-                        <li id="login" class="secret"><a href="/users/new">Register</a>
-                        </li>
-                  </ul>
-            </nav>
+      <div class="partialhead">
+            <div class="toplog">
+                  <nav class="loginnav">
+                  <div class="topsplit">
+                        <ul class="login">
+                              <% if (currentUser) { %>
+                                    <li id="login" class="secret">
+                                          <form action="/sessions?_method=DELETE" method="POST">
+                                          <input type="submit" value="Log Out" class="secret" />
+                                          </form>
+                                          </li>
+                                    <li id="login" class="secret">Welcome <%= currentUser.username %></li>
+                                    <li id="left" class="secret"><a href="/favorites">Favorites</a>
+                                    </li>
+                                    <li id="left" class="secret"><a href="/">Home</a>
+                                    </li>
+                              <% } else { %>
+                                    </li>
+                                    <li id="login" class="secret"><a href="/sessions/new">Log In</a>
+                                    </li>
+                                    <li id="login" class="secret"><a href="/users/new">Register</a>
+                                    </li>
+                                    <li id="login" class="secret"><a href="/">Home</a>
+                              <% } %>
+                        </ul>
+                  </div>
+                  </nav>
+            </div>
       </div>
-      <br>
+<br>
       <div class="intopper">
             <h1>Open Court</h1>
             Basketball Stats and History
@@ -36,8 +52,6 @@
             </nav>
       </div>
 </div>
-<h2 class="partial"></h2>
-<h2 class="partial2"></h2>
 <!-- ============= FOOTER ============= -->
 
 

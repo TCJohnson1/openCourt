@@ -44,12 +44,14 @@ app.use(
 )
 
 //CONTROLLERS
-const userController = require('./controllers/users_controller.js')
-app.use('/users', userController)
 const hoopControllers = require('./controllers/hoops_controller.js')
 app.use(hoopControllers)
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
+const favController = require('./controllers/fav_controller.js')
+app.use('/favorites', favController)
 
 
 // Connect to Mongo
