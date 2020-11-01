@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 
 const hoopSchema = new mongoose.Schema({
-      name: {type: String, required: true},
+      shortname: {type: String, required: true},
       team: {type: String, required: true},
-      position: {type: String, required: true},
-      isFavoritePlayer: Boolean,
+      city: {type: String, required: true},
+      conference: {type: String, required: true},
+      division: {type: String, required: true},
 })
 
 const Hoop = mongoose.model('Hoop', hoopSchema)

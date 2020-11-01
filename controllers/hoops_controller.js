@@ -1,6 +1,32 @@
 const express = require('express');
 const favorites = require('./fav_controller');
 const router = express.Router();
+const axios = require('axios').default
+const Hoop = require('../models/hoops.js')
+
+//API Req Route
+router.get('/search', (req, res) =>{
+      t = req.query.name
+      axios.get(`https://www.balldontlie.io/api/v1/teams?q=${t}`)
+      .then(function (response) {
+            console.log(response.data.data[0].full_name)
+            Hoop.create({
+                  shortname: response.data.data[0].abbreviation,
+                  team: response.data.data[0].full_name,
+                  city: response.data.data[0].city,
+                  conference: response.data.data[0].conference,
+                  division: response.data.data[0].division
+            })
+            res.redirect('/')
+            })
+            .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                  })
+                  .then(function () {
+                  // always executed
+      })
+})
 
 //ROUTES
 let currentUser;
@@ -16,8 +42,13 @@ let currentUser;
 
 //Index
 router.get('/', (req, res) =>{
-      res.render('hoops/index.ejs', { currentUser: req.session.currentUser })
+      Hoop.find({}, (err, allHoops)=> {
+            res.render('hoops/index.ejs', { 
+                  hoops: allHoops, currentUser: req.session.currentUser })
+      })
 })
+
+
 
 ////////////////////Come back and visit. New and Edit Routes will be handled in the sessions and users controllers////////////////////////////////////////////
 

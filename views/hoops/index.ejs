@@ -10,10 +10,17 @@
       </header>
       <h1>Search For A Player</h1>
       <div class="search">
-            <form class="searchbar">
-                  <input type="text" placeholder="Enter Player or Team" name="search2">
+            <form action="/search" class="searchbar">
+                  <input type="text" placeholder="Enter Player or Team" name="name">
                   <input type="submit" value="Search" class="searchbutton"></input>
             </form>
+            <% for (let i=0; i<hoops.length; i++) { %>
+                  <div>
+                        <h3><%= hoops[i].team %></h3>
+                        <h6><%= hoops[i].city %></h6><br>
+                        <p><%= hoops[i].conference %> </p>
+                  </div>
+            <% } %>
       </div>
       <footer class="footer"></footer>
 </body>
