@@ -4,20 +4,14 @@ const router = express.Router();
 const axios = require('axios').default
 const Hoop = require('../models/hoops.js')
 
-//API Req Route
+//API TEAM Route
 router.get('/search', (req, res) =>{
       t = req.query.name
-      axios.get(`https://www.balldontlie.io/api/v1/teams?q=${t}`)
+      // console.log(req.query)
+      axios.get(`https://www.balldontlie.io/api/v1/teams/?q=${t}`)
       .then(function (response) {
-            console.log(response.data.data[0].full_name)
-            Hoop.create({
-                  shortname: response.data.data[0].abbreviation,
-                  team: response.data.data[0].full_name,
-                  city: response.data.data[0].city,
-                  conference: response.data.data[0].conference,
-                  division: response.data.data[0].division
-            })
-            res.redirect('/')
+            console.log(response.data.data)
+            res.render('hoops/apiteams.ejs',{hoops: response.data.data, currentUser: req.session.currentUser})
             })
             .catch(function (error) {
                   // handle error
@@ -28,8 +22,22 @@ router.get('/search', (req, res) =>{
       })
 })
 
+router.post('/favorites', (req, res) =>{
+      // Hoop.create({//res.render instead of create 
+      //       shortname: req.body.shortname,
+      //       team: response.data.data.full_name,
+      //       city: response.data.data.city,
+      //       conference: response.data.data.conference,
+      //       division: response.data.data.division
+      // })
+      Hoop.create(req.body).then( hoop => {
+            res.redirect('/favorites')
+      }).catch(error => console.log(error))
+})
+
+
 //ROUTES
-let currentUser;
+// let currentUser;
 
 //Redirect
 // router.use((req, res, next) =>{
@@ -42,10 +50,10 @@ let currentUser;
 
 //Index
 router.get('/', (req, res) =>{
-      Hoop.find({}, (err, allHoops)=> {
+      Hoop.find({}).then( (allHoops)=> {
             res.render('hoops/index.ejs', { 
                   hoops: allHoops, currentUser: req.session.currentUser })
-      })
+      }).catch(error=> console.log(error))
 })
 
 
@@ -111,10 +119,10 @@ router.get('/compare',(req, res)=>{
 
 //INDEX
 //Test Favorites Route
-router.get('/favorites', (req, res) => {
-      console.log('This is coming from the Hoops Controller')
-      res.render('../views/favorites/show.ejs', { currentUser: req.session.currentUser })
-})
+// router.get('/favorites', (req, res) => {
+//       console.log('This is coming from the Hoops Controller')
+//       res.render('../views/favorites/favorites.ejs', { currentUser: req.session.currentUser })
+// })
 
 //Not sure if an edit route is needed 
 //EDIT 
@@ -123,9 +131,11 @@ router.get('/favorites', (req, res) => {
 
 
 //Delete
-router.delete('/favorites:/index', (req, res) =>{
-      //api.legnth = 0
-      res.redirect('/favorites') //Takes me back to the favorites page
+router.delete('/teams/:index', (req, res) =>{
+      Hoop.findByIdAndDelete(req.params.index).then(deletedInput => {
+            res.redirect('/favorites') //Takes me back to the favorites page
+      }).catch(error => console.log(error))
+      
 })
 
 //Delete All

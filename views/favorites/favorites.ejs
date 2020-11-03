@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <%- include ('../partials/p_head.ejs') %>
+      <title>Favorites Page</title>
+</head>
+<body>
+      <h1>Favorites</h1>
+      <div class="container">
+            <div class="teamdiv" id="leftside">
+                  <h2>Favorite Teams</h2>
+                  <% for (let i=0; i<hoops.length; i++) { %>
+                        <div>
+                              <h3><%= hoops[i].team %></h3>
+                              <p> <%= hoops[i].conference %> 
+                                    <%= hoops[i].division %></p>
+                              <form action="/teams/<%=hoops[i]._id %>/?_method=DELETE" method="POST">
+                                    <input type="submit" value="Delete Favorite">
+                              </form>
+                        </div>
+                  <% } %>
+            </div>
+            <div class="playerdiv" id="leftside">
+                  <h2>Favorite Players</h2>
+            </div>
+      </div>
+</body>
+</html>

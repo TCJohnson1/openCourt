@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <%- include ('../partials/p_head.ejs') %>
+      <title>NBA Teams</title>
+</head>
+<body>
+      <h1>Every NBA Team</h1>
+      <div class="container">
+            <div class="teams" id="east">
+                  <h2>Eastern Confrence</h2>
+                  <% for(let i = 0; i < hoops.length; i++){ %>
+                        <% if(hoops[i].conference === "East"){ %> 
+                        <h3> <%=hoops[i].full_name%> </h3> 
+                        <form action="/favorites" method="POST">
+                              <input type="hidden" name="shortname" value=<%=   hoops[i].abbreviation%>>
+                              <input type="hidden" name="team" value=<%=   hoops[i].full_name%>>
+                              <input type="hidden" name="city" value=<%=   hoops[i].city%>>
+                              <input type="hidden" name="conference" value=<%=   hoops[i].conference%>>
+                              <input type="hidden" name="division" value=<%=   hoops[i].division%>>
+                              <input type="submit" value="Add To Favorites">
+                        </form>
+                        <!-- <h3> <%=hoops[i].abbreviation%> </h3>
+                        <h3> <%=hoops[i].division %></h3> -->
+                        <% } %> 
+                  <% } %>        
+            </div>
+            <div class="teams" id="west" >
+                  <h2>Western Conference</h2>
+                  <% for(let i = 0; i < hoops.length; i++){ %>
+                        <%if(hoops[i].conference === "West"){%>
+                              <h3> <%=hoops[i].full_name%> </h3>
+                              <form action="/favorites" method="POST">
+                                    <input type="hidden" name="shortname" value=<%=   hoops[i].abbreviation%>>
+                                    <input type="hidden" name="team" value=<%=   hoops[i].full_name%>>
+                                    <input type="hidden" name="city" value=<%=   hoops[i].city%>>
+                                    <input type="hidden" name="conference" value=<%=   hoops[i].conference%>>
+                                    <input type="hidden" name="division" value=<%=   hoops[i].division%>>
+                                    <input type="submit" value="Add To Favorites">
+                              </form>
+                              <!-- <h3> <%=hoops[i].abbreviation%> </h3>
+                              <h3> <%=hoops[i].division %></h3> -->
+                        <% } %> 
+                  <% } %> 
+            </div>
+      </div>   
+</body>
+</html>
