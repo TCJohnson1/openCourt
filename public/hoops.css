@@ -6,7 +6,9 @@
 } 
 
 body{
-      background-color: #3e695b;
+      background-color: #3e695be8;
+      color: rgba(245, 245, 245, 0.884);
+      border: thin whitesmoke;
 }
 
 .search{
@@ -70,7 +72,7 @@ button{
 
 .intopper{
       text-align: center;
-      background-image: radial-gradient(rgb(233, 198, 195), rgb(190, 190, 190));
+      background-image: linear-gradient(rgba(240, 225, 224, 0.952), rgba(204, 204, 204, 0.856));
       border-radius: 50px;
       padding: 0px, 5px;
       
@@ -84,24 +86,28 @@ button{
       margin:1%;
       text-decoration: none;
 }
-li:link{
+.navmenu a:link{
       color:whitesmoke;
+      font-size: 15px;
+} 
+.navmenu a:visited{
+      color:whitesmoke;
+      font-size: 15px;
 } 
 
-li:hover{
-      color: rgba(250, 128, 114, 0.685);
-}
-
-.navmenu:link{
+.navmenu a:link{
       color:whitesmoke;
-}
+      font-size: 15px;
+} 
 
-.navmenu:visited{
+.navmenu a:hover{
       color:whitesmoke;
-}
+      font-size: 16px;
+      background-color:#3e695bcb;
+} 
 
 .partialhead{
-      background-color: #ba9077;
+      background-color: white;
 }
 
 .intopper{
@@ -111,12 +117,16 @@ li:hover{
 }
 
 .topper{
-      background-color: salmon;
+      background-image: linear-gradient(rgb(248, 166, 133), rgb(250, 124, 110));
       color: whitesmoke;
-      
+      border-radius: 50px;
+      padding: 0px, 5px;
 }
 
 h1{
+      text-align: center;
+}
+h2{
       text-align: center;
 }
 
@@ -127,17 +137,20 @@ h1{
 }
 
 #west {
-      background-image: linear-gradient( rgb(211, 191, 189), rgb(184, 95, 87));
+      background-image: linear-gradient(rgb(211, 191, 189), rgb(248, 166, 133));;
+      border: thin #3e695be8;
       text-align: center;
-      border-radius: 5px;
+      border-radius: 10px;
       padding: 0px, 11px;
+      width: 20%;
 }
 
 #east {
-      background-image: linear-gradient( rgb(184, 95, 87),  rgb(211, 191, 189));
+      background-image: linear-gradient(rgb(211, 191, 189), rgb(248, 166, 133));
       text-align: center;
-      border-radius: 5px;
+      border-radius: 10px;
       padding: 0px, 11px;
+      width: 20%;
 }
 
 .secret{
@@ -149,6 +162,26 @@ h1{
       margin:1%;
       color: whitesmoke;
 }
+
+.secret a:link{
+      color:whitesmoke;
+      font-size: 15px;
+} 
+.secret a:visited{
+      color:whitesmoke;
+      font-size: 15px;
+} 
+
+.secret a:link{
+      color:whitesmoke;
+      font-size: 15px;
+} 
+
+.secret a:hover{
+      color:whitesmoke;
+      font-size: 16px;
+      background-color:rgba(250, 128, 114, 0.76);
+} 
 
 .toplog{
       background-color: salmon;
@@ -168,16 +201,79 @@ h1{
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      background-image: radial-gradient(#ba9077, #755c4d);
+      background-image: radial-gradient(rgb(236, 178, 173), rgb(190, 190, 190));
       border-radius: 10%;
       border: 2px silver;
       box-shadow: 3px 4px silver;
+      color: whitesmoke;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 }
 
 .playerdiv{
-      border: solid black;
+      border: thin, palegoldenrod;
+      width: 40%;
 }
 
 .teamdiv{
-      border: solid black;
+      border: thin #84ada0fb;
+      width: 40%;
+}
+
+.opencourtIndex{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
+
+#logbutton{
+      background-image: radial-gradient(rgb(243, 118, 104), rgb(250, 159, 124));
+      border: solid #3e695bcb;
+      border-radius: 10px;
+      height: 35px;
+      width: 70px;
+      color: whitesmoke;
+
+}
+
+#logbutton:hover{
+      background-image: radial-gradient(rgb(248, 166, 133), rgb(250, 124, 110));
+      height: 40px;
+      width: 75px;
+}
+
+#logbutton2{
+      background-image: radial-gradient(rgb(243, 118, 104), rgb(250, 159, 124));
+      border: solid #3e695bcb;
+      border-radius: 10px;
+      height: 22px;
+      width: 70px;
+      color: whitesmoke;
+      font-size: 13px;
+}
+
+#logbutton2:hover{
+      background-image: radial-gradient(rgb(248, 166, 133), rgb(250, 124, 110));
+      height: 25px;
+      width: 72px;
+}
+
+#searchbox{
+      background-color: rgba(245, 245, 245, 0.877);
+}
+
+#table{
+      width: 100%;
+}
+
+tbody{
+      background-image: linear-gradient(rgb(248, 166, 133), rgb(250, 124, 110));
+}
+
+#favebutton{
+      border-radius: 5%;
+      border: none;
+      cursor: pointer;
 }

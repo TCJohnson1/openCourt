@@ -14,7 +14,7 @@
                               <% if (currentUser) { %>
                                     <li id="login" class="secret">
                                           <form action="/sessions?_method=DELETE" method="POST">
-                                          <input type="submit" value="Log Out" class="secret" />
+                                          <input type="submit" value="Log Out" class="secret" id="logbutton2" />
                                           </form>
                                           </li>
                                     <li id="login" class="secret">Welcome <%= currentUser.username %></li>
@@ -37,8 +37,8 @@
       </div>
 <br>
       <div class="intopper">
-            <h1>Open Court</h1>
-            Basketball Stats and History
+            <h1 class="opencourtIndex">Open Court</h1>
+            <h2 class="opencourtIndex">Basketball Stats and History</h2>
       </div>
       <div class="topper">
             <nav class="topnav">
