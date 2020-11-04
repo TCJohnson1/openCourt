@@ -7,6 +7,10 @@ const hoopSchema = new mongoose.Schema({
       city: {type: String},
       conference: {type: String},
       division: {type: String},
+      
+      first_name:{type: String},
+      last_name: {type: String},
+      position: {type: String},
 })
 
 const Hoop = mongoose.model('Hoop', hoopSchema)

@@ -6,5 +6,15 @@
 </head>
 <body>
       <h1>All NBA Players</h1>
+      <div>
+            <% for(let i = 0; i < hoops.length; i++){ %>
+                  <form action="/favorites" method="POST">
+                        <input type="hidden" name="first_name" value=<%=hoops[i].first_name%>>
+                        <input type="hidden" name="last_name" value=<%=hoops[i].last_name%>>
+                        <input type="hidden" name="position" value=<%=hoops[i].position%>>
+                        <input type="submit" value="Add To Favorites">
+                  </form>
+            <% } %>  
+      </div>
 </body>
 </html>

@@ -4,10 +4,12 @@ const router = express.Router();
 const axios = require('axios').default
 const Hoop = require('../models/hoops.js')
 
+//////////////////////////////////////////////////////////////////////////
 //API TEAM Route
+//////////////////////////////////////////////////////////////////////////
 router.get('/search', (req, res) =>{
       t = req.query.name
-      // console.log(req.query)
+      console.log(t)
       axios.get(`https://www.balldontlie.io/api/v1/teams/?q=${t}`)
       .then(function (response) {
             console.log(response.data.data)
@@ -35,6 +37,28 @@ router.post('/favorites', (req, res) =>{
       }).catch(error => console.log(error))
 })
 
+//////////////////////////////////////////////////////////////////////////
+//API PLAYER Route
+//////////////////////////////////////////////////////////////////////////
+router.get('/search', (req, res)=> {
+      t = req.query.name
+      axios.get(`https://www.balldontlie.io/api/v1/players/?q=${t}`).then(function(response){
+            console.log(response.data.data)
+            res.render('hoops/allplayers.ejs', {hoops: response.data.data, currentUser: req.session.currentUser})
+      })
+      .catch(function (error) {
+            console.log(error);
+      })
+      .then(function (){
+
+      })
+})
+
+router.post('/favorites', (req, res) => {
+      Hoops.create(req.body).then(hoop => {
+            res.redirect('/players')
+      }).catch(error => console.log(error))
+})
 
 //ROUTES
 // let currentUser;
