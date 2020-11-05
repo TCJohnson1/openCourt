@@ -3,7 +3,7 @@ const favorites = require('./fav_controller');
 const router = express.Router();
 const axios = require('axios').default
 const Hoop = require('../models/hoops.js')
-
+const Player = require('../models/players.js')
 //////////////////////////////////////////////////////////////////////////
 //API TEAM Route
 //////////////////////////////////////////////////////////////////////////
@@ -54,8 +54,8 @@ router.get('/search', (req, res)=> {
       })
 })
 
-router.post('/favorites', (req, res) => {
-      Hoops.create(req.body).then(hoop => {
+router.post('/players', (req, res) => {
+      Players.create(req.body).then(hoop => {
             res.redirect('/players')
       }).catch(error => console.log(error))
 })
@@ -122,14 +122,20 @@ router.get('/team', (req, res) =>{
 ////////////////////Come back and visit. A list of every player doesnt really make sense to have////////////////////////////////////////////
 //Players
 router.get('/players',(req, res)=>{
-      res.render('hoops/allplayers.ejs', { currentUser: req.session.currentUser })
-} )
+            Player.find({}).then( (allPlayers)=>{
+                  res.render('hoops/allplayers.ejs', { currentUser: req.session.currentUser, players: allPlayers})
+            })
+            .catch(error => console.log(error))
+      
+})
+
 ////////////////////////////////////////////////////////////////////////////
 
 //Individual Player
 router.get('/player',(req, res)=>{
       res.render('hoops/player.ejs', { currentUser: req.session.currentUser })
 } )
+
 
 //Player Comparison
 router.get('/compare',(req, res)=>{

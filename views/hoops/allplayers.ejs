@@ -7,13 +7,14 @@
 <body>
       <h1>All NBA Players</h1>
       <div>
-            <% for(let i = 0; i < hoops.length; i++){ %>
-                  <form action="/favorites" method="POST">
-                  <input type="hidden" name="first_name" value=<%=hoops[i].first_name%>>
-                  <input type="hidden" name="last_name" value=<%=hoops[i].last_name%>>
-                  <input type="hidden" name="position" value=<%=hoops[i].position%>>
+            <% for(let i = 0; i < players.length; i++){ %>
+                  <form action="/players" method="POST">
+                  <input type="hidden" name="first_name" value=<%= players[i].first_name%>>
+                  <input type="hidden" name="last_name" value=<%= players[i].last_name%>>
+                  <input type="hidden" name="position" value=<%= players[i].position%>>
                   <input type="submit" value="Add To Favorites">
                   </form>
+
             <% } %>  
       </div>
 </body>
