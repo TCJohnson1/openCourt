@@ -54,10 +54,29 @@
                               </tr>
                         </tbody>
                         <form action="/players/<%=hoops[i]._id %>/?_method=DELETE" method="POST">
-                        <input type="submit" value="Remove Favorite Player" id="favebutton>
+                        <input type="submit" value="Remove Favorite Player" id="favebutton">
                         </form>
                   <% } %>
             </table>
+            <div class="commentbox">
+                  <table class="table">
+                        <tbody class= "commentSection">
+                              <form action="/favotites" method="post">
+                                    <tr class="box">
+                                          <td><LABEL for="name">Name: </LABEL>
+                                          <INPUT type="text" id="name"></td>
+                                    </tr>
+                                    <tr class="box">
+                                          <td><LABEL for="comment">Text: </LABEL>
+                                          <TEXTAREA type="text" id="comment">Comment:</TEXTAREA></td>
+                                    </tr>
+                                    <tr class="box">
+                                          <td><INPUT type="submit" value="Submit"> <INPUT type="reset"></td>
+                                    </tr>
+                              </form>
+                        </tbody>
+                  </table>
+            </div>
             </div>
       </div>
 </body>

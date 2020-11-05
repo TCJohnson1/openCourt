@@ -278,7 +278,27 @@ tbody{
       cursor: pointer;
 }
 
-td{
-      justify-content: center;
+.commentSection{
+      border-radius: 10px;
+      
+}
+
+.commentbox{
+      position: absolute;
       text-align: center;
+      top: 80%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      
+}
+
+.table{
+      border-radius: 20%;
+      width: 200%;
+}
+
+#comment{
+      height:80%;
+      width:80%;
+      font-size: 12pt;
 }
