@@ -7,7 +7,7 @@ const Player = require('../models/players.js')
 //////////////////////////////////////////////////////////////////////////
 //API TEAM Route
 //////////////////////////////////////////////////////////////////////////
-router.get('/search', (req, res) =>{
+router.get('/teams', (req, res) =>{
       t = req.query.name
       console.log(t)
       axios.get(`https://www.balldontlie.io/api/v1/teams/?q=${t}`)
@@ -61,16 +61,6 @@ router.post('/players', (req, res) => {
 })
 
 //ROUTES
-// let currentUser;
-
-//Redirect
-// router.use((req, res, next) =>{
-//       if (req.session.currentUser){
-//             next()
-//       }else {
-//             res.redirect('/sessions/new')
-//       }
-// })
 
 //Index
 router.get('/', (req, res) =>{
@@ -94,15 +84,6 @@ router.get('/new',(req, res)=>{
 } )
 ////////////////////////////////////////////////////////////////////////////
 
-// //Login
-// router.get('/login', (req, res) =>{
-//       res.render('')
-// })
-
-// //Register
-// router.get('users/new', (req, res)=>{
-//       res.render('users/new.ejs')
-// })
 
 //Show
 router.get('/show',(req, res)=>{
