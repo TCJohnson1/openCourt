@@ -131,16 +131,6 @@ router.get('/compare',(req, res)=>{
 } )
 
 
-//////////////////////////////////////////////////////////////////////////////////////////
-// Favorites Routes Copy and Paste if this all needs to go into a Favorites Controller
-//////////////////////////////////////////////////////////////////////////////////////////
-
-//INDEX
-//Test Favorites Route
-// router.get('/favorites', (req, res) => {
-//       console.log('This is coming from the Hoops Controller')
-//       res.render('../views/favorites/favorites.ejs', { currentUser: req.session.currentUser })
-// })
 
 //Not sure if an edit route is needed 
 //EDIT 

@@ -52,8 +52,13 @@ body{
 }
 
 .searchbutton{
-      display: flex;
-      justify-content: center;
+      position: absolute;
+      text-align: center;
+      top: 150%;
+      left: 50%;
+      transform: translate(-40%, -40%);
+      background-color: transparent;
+      border: none;
 }
 
 
@@ -302,3 +307,4 @@ tbody{
       width:80%;
       font-size: 12pt;
 }
+
