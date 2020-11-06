@@ -8,4 +8,4 @@
 #### Pending updates to openCourt
 ##### * Include additional search options for specific games and player stats.
 ##### * A player comparison feature.
-##### * MongoDB One-to-Many Relationships
+##### * MongoDB One-to-Many Relationships.
