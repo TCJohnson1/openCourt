@@ -347,8 +347,9 @@ tbody{
       align-items: center;
       text-align: center;
       font-size: 20px;
-      width: 70%;
-      padding-left: 10%;
+      width: 50%;
+      display: block;
+      margin: auto;
 }
 
 #playerstable{
@@ -356,7 +357,7 @@ tbody{
 }
 
 .addtofavbutton{
-      display: flex;
-      flex-wrap: wrap;
+      display: block;
+      margin: auto;
 }
 
