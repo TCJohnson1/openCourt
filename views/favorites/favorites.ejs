@@ -44,16 +44,16 @@
                                     <th scope="col">Position</th>
                               </tr>
                         </thead>
-                        <% for (let i=0; i<hoops.length; i++) { %>
+                        <% for (let i=0; i<players.length; i++) { %>
                         <tbody>
                               <tr>
                                     <th scope="row"></th>
-                                    <td><%= hoops[i].first_name %></td> 
-                                    <td><%= hoops[i].last_name %></td>
-                                    <td><%= hoops[i].position %></td>
+                                    <td><%= players[i].first_name %></td> 
+                                    <td><%= players[i].last_name %></td>
+                                    <td><%= players[i].position %></td>
                               </tr>
                         </tbody>
-                        <form action="/players/<%=hoops[i]._id %>/?_method=DELETE" method="POST">
+                        <form action="/players/<%=players[i]._id %>/?_method=DELETE" method="POST">
                         <input type="submit" value="Remove Favorite Player" id="favebutton">
                         </form>
                   <% } %>

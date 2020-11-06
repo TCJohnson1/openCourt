@@ -42,23 +42,24 @@ router.post('/favorites', (req, res) =>{
 //////////////////////////////////////////////////////////////////////////
 router.get('/search', (req, res)=> {
       t = req.query.name
-      axios.get(`https://www.balldontlie.io/api/v1/players/?q=${t}`).then(function(response){
+      axios.get(`https://www.balldontlie.io/api/v1/players/?search=${t}`).then(function(response){
             console.log(response.data.data)
-            res.render('hoops/allplayers.ejs', {hoops: response.data.data, currentUser: req.session.currentUser})
+            res.render('hoops/player.ejs', {players: response.data.data, currentUser: req.session.currentUser})
       })
       .catch(function (error) {
             console.log(error);
       })
-      .then(function (){
+      // .then(function (){
 
-      })
+      // })
 })
-
-router.post('/players', (req, res) => {
-      Players.create(req.body).then(hoop => {
-            res.redirect('/players')
+//===== This allows me to POST players to my favorites table in my favorites route
+router.post('/player', (req, res) => {
+      Player.create(req.body).then(hoop => {
+            res.redirect('/favorites')
       }).catch(error => console.log(error))
 })
+/////////////////////////////////////////////////////////////////////////////////////////
 
 //ROUTES
 
@@ -99,23 +100,29 @@ router.get('/teams',(req, res)=>{
 router.get('/team', (req, res) =>{
       res.render('hoops/team.ejs', { currentUser: req.session.currentUser })
 })
-
-////////////////////Come back and visit. A list of every player doesnt really make sense to have////////////////////////////////////////////
-//Players
-router.get('/players',(req, res)=>{
-            Player.find({}).then( (allPlayers)=>{
-                  res.render('hoops/allplayers.ejs', { currentUser: req.session.currentUser, players: allPlayers})
-            })
-            .catch(error => console.log(error))
-      
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//All Players Page on the PLAYERS route
+router.get('/players', (req, res) =>{
+      axios.get(`https://www.balldontlie.io/api/v1/players`).then(response => {
+            console.log(response.data.data)
+            res.render('hoops/allplayers.ejs', {currentUser: req.session.currentUser, players: response.data.data})
+      }).catch(error => (console.log(error)))
 })
-
+// allows you to post a player to your favorites from the PLAYERS route
+router.post('/players', (req, res) => {
+      Player.create(req.body).then(hoop => {
+            res.redirect('/favorites')
+      }).catch(error => console.log(error))
+})
 ////////////////////////////////////////////////////////////////////////////
 
-//Individual Player
-router.get('/player',(req, res)=>{
-      res.render('hoops/player.ejs', { currentUser: req.session.currentUser })
-} )
+//Player Name Search ====== This is the route accessed after a SEARCH.
+router.get('/player', (req, res) =>{
+      axios.get(`https://www.balldontlie.io/api/v1/players`).then(response => {
+            console.log(response.data.data)
+            res.render('hoops/player.ejs', {currentUser: req.session.currentUser, players: response.data.data})
+      }).catch(error => (console.log(error)))
+})
 
 
 //Player Comparison
@@ -141,7 +148,7 @@ router.get('/compare',(req, res)=>{
 //UPDATE
 
 
-//Delete
+//Delete Teams
 router.delete('/teams/:index', (req, res) =>{
       Hoop.findByIdAndDelete(req.params.index).then(deletedInput => {
             res.redirect('/favorites') //Takes me back to the favorites page
@@ -149,8 +156,14 @@ router.delete('/teams/:index', (req, res) =>{
       
 })
 
-//Delete All
+//Delete Player
 
+router.delete('/players/:index', (req, res) =>{
+      Player.findByIdAndDelete(req.params.index).then(deletedInput => {
+            res.redirect('/favorites') //Takes me back to the favorites page
+      }).catch(error => console.log(error))
+      
+})
 
 
 

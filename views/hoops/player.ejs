@@ -5,20 +5,24 @@
       <title>Your Player</title>
 </head>
 <header>
-      <div class="topper">
-            <nav class="topnav">
-                  <ul class="topmenu">
-                        <li id="home" class="navmenu"><a href="/">Home</a>
-                        </li>
-                        <li id="teams" class="navmenu"><a href="/teams">Teams</a>
-                        </li>
-                        <li id="comp" class="navmenu"><a href="/compare">Player Comparisons</a>
-                        </li>
-                  </ul>
-            </nav>
-      </div>
+
 </header>
 <body>
-      <h1>You Chose This Player</h1>
+      <body>
+            <h1>NBA Players Search</h1>
+            <div class="players">
+                  <% for(let i = 0; i < players.length; i++){ %>
+                        <h3> <%=players[i].first_name%> </h3> 
+                        <h3> <%=players[i].last_name%> </h3> 
+                        <h3> <%=players[i].position%> </h3> 
+                        <form action="/players" method="POST">
+                        <input type="hidden" name="first_name" value=<%= players[i].first_name%>>
+                        <input type="hidden" name="last_name" value=<%= players[i].last_name%>>
+                        <input type="hidden" name="position" value=<%= players[i].position%>>
+                        <input type="submit" value="Add To Favorites">
+                        </form>
+                  <% } %>  
+            </div>
+      </body>
 </body>
 </html>

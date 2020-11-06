@@ -10,12 +10,13 @@
       </header>
       <h1>Search For A Player</h1>
       <div class="search">
-            <input action="/search" class="input" type="text" placeholder="Search a Player or Team" name="name" id="searchbox">
-            <br>
-            <br>
-            <div class="searchbutton" type="submit" value="Search">
-                  <a href="/search"><i class='fas fa-basketball-ball' id="bballbutton" style='font-size:36px'></i>
-                  </div>
+            <form action="/search" method="GET">
+            <input class="input" type="text" placeholder="Search a Player or Team" name="name" id="searchbox">
+            
+            <button class="searchbutton" type="submit" value="Search">
+                  <i class='fas fa-basketball-ball' id="bballbutton" style='font-size:36px'></i>
+            </button>
+            </form>
       </div>
       <footer class="footer"></footer>
       <div></div>
