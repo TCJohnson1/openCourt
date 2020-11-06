@@ -3,4 +3,4 @@
 
 #### openCourt puts all the necessary statistical information on the NBA a mouse click away. Built using the [balldontlie API](https://www.balldontlie.io/#introduction "balldontlie API") you can access data on NBA teams and player.
 
-![Image of App]
+![Image of App](/images/openCourt.png)
