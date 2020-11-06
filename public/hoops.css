@@ -255,11 +255,19 @@ h2{
 .playerdiv{
       border: thin, palegoldenrod;
       width: 40%;
+      display: block;
+      margin: auto;
+      align-items: center;
+      text-align: center;
 }
 
 .teamdiv{
       border: thin #84ada0fb;
       width: 40%;
+      display: block;
+      margin: auto;
+      align-items: center;
+      text-align: center;
 }
 
 .opencourtIndex{
