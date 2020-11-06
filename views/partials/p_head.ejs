@@ -6,9 +6,9 @@
 <!-- ============= STYLES ============= -->
 <link rel="stylesheet" href="/hoops.css">
 <!-- ============= REGISTER ============= -->
-      <div class="partialhead">
-            <div class="toplog">
-                  <nav class="loginnav">
+<div class="partialhead">
+      <div class="toplog">
+            <nav class="loginnav">
                   <div class="topsplit">
                         <ul class="login">
                               <% if (currentUser) { %>
@@ -33,9 +33,17 @@
                         </ul>
                   </div>
                   </nav>
-            </div>
       </div>
-<br>
+</div>
+      <div class="topformdiv">
+      <form action="/search" method="GET" class="topform">
+            <input class="input" type="text" placeholder="Search a Player or Team" name="name" id="topsearchbox">
+
+            <button class="navsearch" type="submit" value="Search">
+            <i class='fas fa-basketball-ball' id="bballbuttontop" style='font-size:24px'></i>
+            </button>
+      </form>
+      </div>
       <div class="intopper">
             <h1 class="opencourtIndex">Open Court</h1>
             <h2 class="opencourtIndex">Basketball Stats and History</h2>
@@ -52,7 +60,6 @@
                   </ul>
             </nav>
       </div>
-</div>
 <!-- ============= FOOTER ============= -->
 
 

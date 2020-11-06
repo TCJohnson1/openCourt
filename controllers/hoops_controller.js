@@ -42,7 +42,7 @@ router.post('/favorites', (req, res) =>{
 //////////////////////////////////////////////////////////////////////////
 router.get('/search', (req, res)=> {
       t = req.query.name
-      axios.get(`https://www.balldontlie.io/api/v1/players/?search=${t}`).then(function(response){
+      axios.get(`https://www.balldontlie.io/api/v1/players/?per_page=100&search=${t}`).then(function(response){
             console.log(response.data.data)
             res.render('hoops/player.ejs', {players: response.data.data, currentUser: req.session.currentUser})
       })

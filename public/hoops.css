@@ -61,6 +61,36 @@ body{
       border: none;
 }
 
+.topformdiv{
+      background-image: linear-gradient(rgb(248, 166, 133), rgb(250, 124, 110));
+      border-radius: 50px;
+      padding: 0px, 5px;
+}
+
+.navsearch{
+      border: none;
+      margin-left: -10px;
+      background-color: transparent;
+}
+
+#bballbuttontop{
+      color: #3e695be8;
+      padding-left: -20px;
+      
+}
+
+#bballbuttontop:hover{
+      color: #3e6955b0;
+}
+
+
+#topsearchbox.input{
+      height: 35px;
+      width: 200px;
+      margin-left: 10px;
+      margin-bottom: 15px;
+} 
+
 
 button{
       display: inline-block;
