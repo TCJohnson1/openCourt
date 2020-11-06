@@ -74,13 +74,13 @@ body{
 }
 
 #bballbuttontop{
-      color: #3e695be8;
+      color:rgba(245, 245, 245, 0.726);
       padding-left: -20px;
       
 }
 
 #bballbuttontop:hover{
-      color: #3e6955b0;
+      color:#3e695bad;
 }
 
 
@@ -215,7 +215,7 @@ h2{
 .secret a:hover{
       color:whitesmoke;
       font-size: 16px;
-      background-color:rgba(250, 128, 114, 0.76);
+      background-color:#3e695bcb;
 } 
 
 .toplog{
@@ -245,6 +245,11 @@ h2{
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+}
+
+.players{
+      border: thin, palegoldenrod;
+      width: 100%;
 }
 
 .playerdiv{
@@ -336,5 +341,22 @@ tbody{
       height:80%;
       width:80%;
       font-size: 12pt;
+}
+
+.players{
+      align-items: center;
+      text-align: center;
+      font-size: 20px;
+      width: 70%;
+      padding-left: 10%;
+}
+
+#playerstable{
+      width: 100%;     
+}
+
+.addtofavbutton{
+      display: flex;
+      flex-wrap: wrap;
 }
 

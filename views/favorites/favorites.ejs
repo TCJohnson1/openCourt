@@ -16,6 +16,7 @@
                                     <th scope="col">Team</th>
                                     <th scope="col">Conference</th>
                                     <th scope="col">Division</th>
+                                    <th scope="col">Remove Team</th>
                               </tr>
                         </thead>
                         <% for (let i=0; i<hoops.length; i++) { %>
@@ -25,11 +26,12 @@
                                     <td><%= hoops[i].team %></td> 
                                     <td><%= hoops[i].conference %></td>
                                     <td><%= hoops[i].division %></td>
+                                    <td>  <form class="favebuttons" action="/teams/<%=hoops[i]._id %>/?_method=DELETE" method="POST">
+                                          <input type="submit" value="Remove Favorite Team" id="favebutton">
+                                    </form></td>
                               </tr>
                         </tbody>
-                        <form action="/teams/<%=hoops[i]._id %>/?_method=DELETE" method="POST">
-                              <input type="submit" value="Remove Favorite Team" id="favebutton">
-                        </form>
+
                         <% } %>
                   </table>
             </div>
@@ -42,6 +44,7 @@
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Position</th>
+                                    <th scope="col">Remove Players</th>
                               </tr>
                         </thead>
                         <% for (let i=0; i<players.length; i++) { %>
@@ -51,14 +54,15 @@
                                     <td><%= players[i].first_name %></td> 
                                     <td><%= players[i].last_name %></td>
                                     <td><%= players[i].position %></td>
+                                    <td><form class="favebuttons" action="/players/<%=players[i]._id %>/?_method=DELETE" method="POST">
+                                          <input type="submit" value="Remove Favorite Player" id="favebutton">
+                                          </form></td>
                               </tr>
                         </tbody>
-                        <form action="/players/<%=players[i]._id %>/?_method=DELETE" method="POST">
-                        <input type="submit" value="Remove Favorite Player" id="favebutton">
-                        </form>
+                        
                   <% } %>
             </table>
-            <div class="commentbox">
+            <!-- <div class="commentbox">
                   <table class="table">
                         <tbody class= "commentSection">
                               <form action="/favotites" method="post">
@@ -76,7 +80,7 @@
                               </form>
                         </tbody>
                   </table>
-            </div>
+            </div> -->
             </div>
       </div>
 </body>
